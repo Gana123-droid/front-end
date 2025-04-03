@@ -114,7 +114,7 @@ export default function Sfilter() {
         <div
           key={item.name}
           className="text-black border border-black shadow-lg rounded-md p-4 cursor-pointer"
-          onClick={() => router.push(`/11b/slug/${item.id}`)}
+          onClick={() => router.push(`/11b/${item.id}`)}
         >
 {grid ? (
   <div className="flex flex-col md:flex-row items-center gap-4 w-full">

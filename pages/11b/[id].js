@@ -76,7 +76,7 @@ export default function ID() {
         <>
             <button className="border-md border-black " onClick={() => router.back()}>Back</button>
             {(data || []).  map((item, index) =>
-            router.query.id === item.id && router.query.slug == item.name ? (
+            router.query.id === item.id ? (
                 <div>
                     {item.name} {item.description}
                     <img src={item?.images} className="w-40 object-cover"/>
