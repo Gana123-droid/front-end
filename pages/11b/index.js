@@ -81,8 +81,9 @@ export default function Sfilter() {
         </div>
         </div>
       ) : (
-        <>
+        <> 
           <div className="w-full flex items-center flex-col gap-3">
+          <button className="w-[100px] h-[80px] rounded-lg border-2 border-black text-black dark:border-white absolute left-0 top-0" onClick={() => router.back()}>back</button>
             <div className="flex justify-between mt-4 mx-8 fixed top-1 right-1">
               <button
                 className="lg:text-2xl sm:text-lg md:text-xl text-blue-500 underline font-bold border border-black sm:w-[50px] sm:h[25px] md:w-[80px] lg:w-[100px] lg:h-[50px] rounded-lg"
