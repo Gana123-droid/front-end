@@ -8,6 +8,8 @@ export default function Home() {
     { name: "Timer", path: "/Timer" },
     { name: "Homepage", path: "/homepage" },
     { name: "Mongol-api", path: "/11b" },
+    { name: "MyClass", path: "/Myclass" },
+    { name: "Search", path: "/search  " },
   ];
 
   return (
