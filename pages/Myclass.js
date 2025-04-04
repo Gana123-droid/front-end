@@ -38,7 +38,7 @@ export default function Sfilter() {
     );
 
     return (
-        <div className="w-full min-h-screen bg-black px-80 flex flex-col">
+        <div className="w-full min-h-screen bg-black lg:px-80 md:px-40 sm:p-20 flex flex-col">
             <button
                 className="absolute top-5 left-5 border-2 border-white text-white p-4 rounded-md hover:bg-purple-200 shadow-white shadow-md"
                 onClick={() => router.back()}>Back</button>
