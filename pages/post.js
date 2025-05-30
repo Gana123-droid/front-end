@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Post() {
@@ -7,8 +7,10 @@ export default function Post() {
   const [name, setName] = useState("");
   const [ovog, setOvog] = useState("");
   const [email, setEmail] = useState("");
-  const [age, setAge] = useState("");
+  const [age, setAge] = useState(0);
+  const [data, setData] = useState([]);
   console.log(name);
+  console.log(show);
 
   const handleSubmit = () => {
     // axios.get --> data awchrah
@@ -21,7 +23,21 @@ export default function Post() {
       email: email,
       age: age,
     });
+
+  
   };
+
+
+  useEffect(() => {
+      const fetchData = async () => {
+        const res = await fetch("http://localhost:8080/users");
+        const result = await res.json();
+        setData(result);
+      };
+
+      fetchData();
+    }, []);
+console.log(data);
 
   return (
     <div className="p-4 ">
@@ -87,27 +103,35 @@ export default function Post() {
         <div className="flex items-center space-x-4 mt-2">
           <p className="text-3xl font-bold">Show data:</p>
           <button
-          onClick={() => setShow((e) => !e)}
-          className="bg-blue-400 rounded-lg cursor-pointer p-4 text-white text-xl"
-        >Data Haruulah</button>
+            onClick={() => setShow((e) => !e)}
+            className="bg-blue-400 rounded-lg cursor-pointer p-4 text-white text-xl"
+          >
+            Data Haruulah
+          </button>
         </div>
-      {show === true && (
-        <div className="m-4 space-y-4 ">
-          <div>
-            <label className="text-3xl font-semibold ">Нэр:</label>
-          </div>
-          <div>
-            <label className="text-3xl font-semibold">Овог:</label>
-          </div>
-          <div>
-            <label className="text-3xl font-semibold">Email:</label>
-          </div>
-          <div>
-            <label className="text-3xl font-semibold">Нас:</label>
-          </div>
-        </div>
-      )}
-        </div>
+          {data.map((item, index) => (
+            <div className="m-4 space-y-4 text-white">
+              <div>
+                <label className="text-3xl font-semibold ">
+                  Нэр:{item.first_name}
+                </label>
+              </div>
+              <div>
+                <label className="text-3xl font-semibold">
+                  Овог:{item.last_name}
+                </label>
+              </div>
+              <div>
+                <label className="text-3xl font-semibold">
+                  Email:{item.email}
+                </label>
+              </div>
+              <div>
+                <label className="text-3xl font-semibold">Нас:{item.age}</label>
+              </div>
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
